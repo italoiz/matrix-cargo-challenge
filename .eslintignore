@@ -1,0 +1,4 @@
+# ignore the config files inside projects root.
+server/*.js
+packages/*/*.js
+client/*.js
