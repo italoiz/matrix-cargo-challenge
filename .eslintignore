@@ -2,6 +2,7 @@
 server/*.js
 packages/*/*.js
 client/*.js
+.eslintrc.js
 
 # ignore dist or build folders
 **/dist/

@@ -24,6 +24,7 @@ module.exports = {
       {
         tsx: 'never',
         ts: 'never',
+        '': 'never',
       },
     ],
     'import-helpers/order-imports': [
@@ -43,6 +44,7 @@ module.exports = {
     'no-useless-constructor': 'off',
     'import/prefer-default-export': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
+    'import/no-unresolved': 'off',
   },
   settings: {
     'import/resolver': {

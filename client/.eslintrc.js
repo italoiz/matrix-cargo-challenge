@@ -1,4 +1,6 @@
 module.exports = {
   extends: ['@tsmonorepo/eslint-config/react'],
-  rules: {},
+  parserOptions: {
+    project: path.resolve(__dirname, 'tsconfig.json'),
+  },
 };
