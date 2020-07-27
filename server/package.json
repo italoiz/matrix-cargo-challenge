@@ -7,16 +7,20 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "tsnd -r tsconfig-paths/register --transpile-only --ignore-watch node_modules ./src/index.ts"
+    "dev": "tsnd -r tsconfig-paths/register --transpile-only --ignore-watch node_modules --no-notify --respawn ./src/index.ts",
+    "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files"
   },
   "dependencies": {
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.10.5",
     "@types/express": "^4.17.7",
     "@types/node": "^14.0.26",
     "ts-node-dev": "^1.0.0-pre.56",
-    "tsconfig-paths": "^3.9.0"
+    "tsconfig-paths": "^3.9.0",
+    "@tsmonorepo/babel-presets": "*"
   }
 }

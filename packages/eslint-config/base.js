@@ -47,6 +47,13 @@ module.exports = {
   settings: {
     'import/resolver': {
       typescript: {},
+      node: {
+        extensions: ['.js', '.ts', '.json'],
+      },
+    },
+    'import/extensions': ['.js', '.ts', '.mjs'],
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.d.ts'],
     },
   },
 };
