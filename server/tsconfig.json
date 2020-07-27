@@ -1,0 +1,14 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "target": "es2018",
+    "lib": ["es2018"],
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "paths": {
+      "#/*": ["./src/*"]
+    },
+    "typeRoots": ["../node_modules/@types", "./typings"],
+  },
+  "include": ["./src"]
+}

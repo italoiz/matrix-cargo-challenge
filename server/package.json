@@ -5,5 +5,13 @@
   "repository": "git@github.com:italoiz/typescript-monorepo-starter.git",
   "author": "Italo Izaac <italoiz.dev@gmail.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.7",
+    "@types/node": "^14.0.26"
+  }
 }

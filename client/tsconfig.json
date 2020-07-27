@@ -1,0 +1,14 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "target": "es6",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "jsx": "react",
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "paths": {
+      "#/*": ["./src/*"]
+    },
+    "typeRoots": ["../node_modules/@types", "./typings"],
+  }
+}
