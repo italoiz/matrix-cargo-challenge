@@ -8,6 +8,7 @@ module.exports = api => {
       require('@babel/preset-typescript'),
     ],
     plugins: [
+      require('@babel/plugin-transform-runtime'),
       ...(!api.env('production') && ['react-refresh/babel'] ),
     ]
   }
