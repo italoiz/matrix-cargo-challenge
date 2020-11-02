@@ -45,6 +45,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     'import/no-unresolved': 'off',
+    'camelcase': 'off',
   },
   settings: {
     'import/resolver': {
