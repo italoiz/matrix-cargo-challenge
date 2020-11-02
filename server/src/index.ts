@@ -1,4 +1,5 @@
 import '#/config/env';
+import cors from 'cors';
 import express from 'express';
 
 import { FindLanguagesRepositoriesController } from './controllers/FindLanguagesRepositoriesController';
@@ -6,6 +7,9 @@ import { FindRepositoriesController } from './controllers/FindRepositoriesContro
 import { expressHandler } from './helpers/decorators';
 
 const app = express();
+
+app.use(express.json());
+app.use(cors());
 
 app.get('/repositories', expressHandler(new FindRepositoriesController()));
 app.get(
