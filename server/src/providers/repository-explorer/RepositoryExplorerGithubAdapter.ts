@@ -8,11 +8,19 @@ import {
   Language,
 } from '#/interfaces';
 
+interface GithubRepositoryOwner {
+  id: number;
+  login: string;
+  avatar_url: string;
+}
+
 interface GithubRepository {
   id: number;
   name: string;
   full_name: string;
   html_url: string;
+  description: string;
+  owner: GithubRepositoryOwner;
 }
 
 interface GithubSearchResult {
@@ -38,18 +46,27 @@ export class RepositoryExplorerGithubAdapter
     });
   }
 
+  private mapRepository(repo: GithubRepository): Repository {
+    const { id, name, full_name, description, html_url, owner } = repo;
+    const { login, avatar_url } = owner;
+
+    return {
+      id,
+      name,
+      full_name,
+      description,
+      html_url,
+      owner: { id: owner.id, login, avatar_url },
+    };
+  }
+
   async findAllRepositories(): Promise<Repository[]> {
     try {
       const { data: allRepositories } = await this.api.get<GithubRepository[]>(
         '/repositories',
       );
 
-      return allRepositories.map(({ id, name, full_name, html_url }) => ({
-        id,
-        name,
-        full_name,
-        html_url,
-      }));
+      return allRepositories.map(this.mapRepository);
     } catch {
       return [];
     }
@@ -62,12 +79,7 @@ export class RepositoryExplorerGithubAdapter
         { params: { q: `language:${lang}` } },
       );
 
-      return allRepositories.items.map(({ id, name, full_name, html_url }) => ({
-        id,
-        name,
-        full_name,
-        html_url,
-      }));
+      return allRepositories.items.map(this.mapRepository);
     } catch {
       return [];
     }
